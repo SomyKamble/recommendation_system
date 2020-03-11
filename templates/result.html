@@ -1,0 +1,44 @@
+<html>
+   <body>
+   <center>
+      <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+    {% if (invalid_score==0) %}
+   {% if (bg==1)   %}
+      {% if(course_available==0) %}
+      <label>The course <b>{{t1[0]}}</b> is not available for marks given</label><br>
+      {% endif %}
+
+      {% if(course_available==1) %}
+      <label>The course <b>{{t1[0]}}</b> is available for marks given</label><br>
+      {% endif %}
+      <label>the other courses are : </label>
+      <table border="1">
+         <tr>
+    <th>Branch name </th>
+    <th>Institute Name</th>
+
+
+
+  </tr>
+         {% for i in range(0,len_insit) %}
+         <tr><th>{{course_df[i][0]}}</th><td>{{insti_df[i][0]}}</td></tr>
+         {% endfor %}
+      </table>
+{% endif %}
+{% endif %}
+{% if (bg==0) %}
+       <h1>your score is low</h1>
+{% endif %}
+{% if (invalid_score==1) %}
+       <h2>Please enter a valid score</h2>
+ {% endif %}
+</center>
+   </body>
+</html>

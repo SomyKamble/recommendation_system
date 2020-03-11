@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>predict</title>
+</head>
+<center><h2>BRANCH RECOMMENDER</h2>
+    <h3>UNDER THE GUIDANCE OF : PROF. Roshan Bhanuse</h3>
+    <h3>Made By : </h3>
+    <h4>Vaidehi Jirafe , Mayuri Dhanjani</h4>
+    <h4>Mithilesh Barwat , Shrushti Chauhan</h4></center>
+<body style="background-color:powdergreen;">
+    <center>
+    <div>
+    <form action="{{url_for('predict')}}" method="post">
+        <table border = 1>
+
+            <tr><th>{{score}}</th></label><td><input type="text" name={{score}}></td></tr>
+
+        <tr>
+            <th>Exam (JEE/MHT- CET)</th><td><select name="Exam (JEE/MHT- CET)">{% for i in range(0,exa_len) %}<option value={{exam[i]}}>{{exam[i]}}</option>{% endfor %}</select>
+          </tr>
+            </td>
+
+          <tr><th>Type</th><td><select name="Type">{% for i in range(0,ltype) %}<option value="{{type[i]}}">{{type[i]}}</option>{% endfor %}</select></td></tr>
+
+
+            <tr><th>Seat Type</th> <td><select name="Seat Type">{% for i in range(0,lseat_type) %}<option value="{{seat_type[i]}}">{{seat_type[i]}}</option>{% endfor %}</select></td> </tr>
+
+            <tr><th>Course Name</th><td><select name="Course Name">{% for i in range(0,lcourse) %}<option value="{{course_name[i]}}">{{course_name[i]}}</option>{% endfor %}</select></td></tr>
+
+
+
+         </table>
+        <button type="submit">Predict</button>
+
+
+        </ol>
+    </form>
+    </div>
+    </center>
+<br>
+<br>
+</body>
+</html>
