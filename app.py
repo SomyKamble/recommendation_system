@@ -1,3 +1,5 @@
+from math import trunc
+
 import pandas as pd
 from flask import Flask, request, render_template
 from sklearn.neighbors import NearestNeighbors
@@ -128,7 +130,7 @@ def predict():
     distance, indices = knn_model.kneighbors(x.iloc[tame].values.reshape(1, -1), n_neighbors=15)
     dist = distance.flatten()
     indi = indices.flatten()
-    print(d['score'].values)
+    print("the scores are ",d['score'].values)
     print(m)
     v = {}
     insti = {}
@@ -138,12 +140,12 @@ def predict():
     score_df = pd.DataFrame()
     for i in range(len(indices.flatten())):
         q = indices.flatten()[i]
-        print(q)
+        #print(q)
         v = m[q]
         scorei = score_m[q]
-        num1 = random.randint(100, 100.5)
-        accuracy = num1 - dist.flatten()[i]
-        print('the accuraccy is :', accuracy)
+        import math
+        print("the error is ",round(dist.flatten()[i],4))
+        #print('the accuraccy is :')
         print(scorei)
         q = indi.flatten()[i]
         print(q)
