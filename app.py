@@ -1,6 +1,7 @@
 import pandas as pd
 from flask import Flask, request, render_template
 from sklearn.neighbors import NearestNeighbors
+import random
 
 app = Flask(__name__)
 knn_model=NearestNeighbors(metric='cosine',algorithm='brute')
@@ -40,12 +41,8 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     result = request.form
-
-
     #creating a copy of non-encoded x
     no_encode=dataset[['Exam (JEE/MHT- CET)', 'Type', 'Seat Type', 'score']]
-
-
     y = {}
     for key, value in request.form.items():
         y[key] = value
@@ -144,7 +141,13 @@ def predict():
         print(q)
         v = m[q]
         scorei = score_m[q]
+        num1 = random.randint(100, 100.5)
+        accuracy = num1 - dist.flatten()[i]
+        print('the accuraccy is :', accuracy)
         print(scorei)
+        q = indi.flatten()[i]
+        print(q)
+
         insti = institue_name[q]
 
         print(v)
