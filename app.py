@@ -60,13 +60,13 @@ def predict():
         k = d.iloc[0, i]
 
         c = d.iloc[:, i].name
-        print(k, c)
+        #print(k, c)
         typ = type(no_encode[d.iloc[:, i].name][0])
-        print(typ)
+        #print(typ)
 
         if (typ == str):
             g = no_encode[no_encode[c] == k].index
-            print("this is ", g)
+            #print("this is ", g)
             if (len(g) > 1):
                 g = g[1]
             else:
@@ -74,8 +74,8 @@ def predict():
             j = x[c][g]
             j=int(j)
             d[c] = j
-            print(j)
-            print(d[c])
+            #print(j)
+            #print(d[c])
         else:
             k=int(k)
             d[c]=k
@@ -130,7 +130,7 @@ def predict():
     distance, indices = knn_model.kneighbors(x.iloc[tame].values.reshape(1, -1), n_neighbors=15)
     dist = distance.flatten()
     indi = indices.flatten()
-    print("the scores are ",d['score'].values)
+    #print("the scores are ",d['score'].values)
     print(m)
     v = {}
     insti = {}
@@ -144,15 +144,15 @@ def predict():
         v = m[q]
         scorei = score_m[q]
         import math
-        print("the error is ",round(dist.flatten()[i],4))
+        print(" ",(dist.flatten()[i]))
         #print('the accuraccy is :')
-        print(scorei)
+       # print(scorei)
         q = indi.flatten()[i]
-        print(q)
+        #print(q)
 
         insti = institue_name[q]
 
-        print(v)
+        #print(v)
         course_df = course_df.append([v], ignore_index=True)
 
         insti_df = insti_df.append([insti], ignore_index=True)
@@ -171,7 +171,7 @@ def predict():
 
     #if(d['Exam (JEE/MHT- CET)'][0]=='JEE'):
 
-    print(tame)
+    #print(tame)
 
 
 
@@ -180,6 +180,7 @@ def predict():
 
 
     #print(course_df)
+    print(insti_df)
 
 
 
